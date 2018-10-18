@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Farid Landing page </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="jquery.min.js"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			@font-face {
+			    font-family: irsans;
+			    src: url(irsans.ttf);
+			}
+			body {
+				font-family: irsans;
+				background-color: rgba(130, 130, 130, 1);
+			}
+			.cinogram-logo {
+		        width: 70%;
+		        margin : auto;
+		    }
+		    .flex-container{
+		    }
+		    .circles-css {
+		    	font-family: irsans;
+		        border-radius: 100%;
+		        border: 2px solid white;
+		        width: 110px;
+		        height: 110px;
+		        margin: 0px auto;
+		        background-color: rgba(230, 230, 230, 0.4);
+		        color:white;
+		        margin-bottom: 10px;
+		    }
+		    .circles-time {
+		        margin-top: 25px;
+		        font-weight: bold;
+		        font-size:30px;
+		    }
+		 	canvas {
+		 		position: absolute;
+		 		top: 0px;
+		 		left: 0px;
+		 		z-index: -1;
+		 	}
+
+			.glitch-word-box {
+				position: relative;
+				animation: disappear 1s infinite;
+			}
+			.glitch-word-box-element{
+				position: absolute;
+				font-size:24px;
+				font-weight: bold;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+			}
+			.glitch-word-box .glitch-word0 {
+				color:white;
+			}			
+			.glitch-word-box .glitch-word1 {
+				color: red;		
+				animation: animate-glitch-1 2s linear infinite;
+			}
+						
+			.glitch-word-box .glitch-word2 {
+				color: blue;
+		  		animation: animate-glitch-2 2s linear infinite;
+			}
+			@keyframes disappear {
+				0% { opacity: 0; }
+				2% { opacity: 1; }
+			}
+									
+			@keyframes animate-glitch-1 {
+			  	0% { top: 0px; left: 0px;}
+			 	3.5% { top: 3px; left: 2px;}
+		 		8.0% { top: -2px; left: -3px;}
+			 	12.5% { top: 2px; left: 3px;}
+				20.0% {	top: 0px; left: 0px;}			
+			}
+						
+			@keyframes animate-glitch-2 {
+			  	0% { top: 0px; left: 0px;}
+ 				5% { top: -2px; left: -2px;}
+ 				10.0% { top: 3px; left: 4px;}
+ 				12% { top: -2px; left: -2px;}
+ 				14% { top: 3px; left: 4px;}
+				20.0% { top: 0px; left: 0px;}			
+			}
+			#glitched-canvas {
+    			position: relative;
+			    z-index: 1;
+			    width: 900px;
+			    height: 200px;
+			    margin-top: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<body class="coming-soon-body">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+					<h1>
+						<img src="cinogram-logo.png" class="img-responsive cinogram-logo" alt="سینوگرام">
+						<br>
+						<div class="glitch-word-box">
+							<small  class="glitch-word-box-element glitch-word2">سی و پنجمین جشنواره فیلم فجر</small>
+							<small  class="glitch-word-box-element glitch-word1">سی و پنجمین جشنواره فیلم فجر</small>
+							<small  class="glitch-word-box-element glitch-word0">سی و پنجمین جشنواره فیلم فجر</small>
+						</div>
+					</h1>
+				</div>
+			</div>
+			<div class="double-separator"><!-- separator --></div><br><br>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+					<form class="form-inline">
+						<div class="form-group">
+							<div class="input-group input-group-lg">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+								</span>
+								<input type="text" class="form-control input-lg ltr" placeholder="Enter email">
+								<div class="input-group-addon">@</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="double-separator"><!-- separator --></div><br>
+			<div class="row">
+				<div class="col-sm-offset-2 col-sm-8">
+					<div class="row" class="flex-container">
+						<div class="col-xs-6 col-sm-3">
+							<div class="circles-css">
+								<div class="circles-time"></div> روز
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-3">
+							<div class="circles-css">
+								<div class="circles-time"></div> ساعت
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-3">
+							<div class="circles-css">
+								<div class="circles-time"></div> دقیقه
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-3">
+							<div class="circles-css">
+								<div class="circles-time"></div> ثانیه
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="three.min.js"></script>
+		<script src="OrbitControls.js"></script>
+
+		
+		<script> 
+			var controls, camera, scene, renderer;
+			var cameraCube, sceneCube;
+			var textureEquirec, textureCube, textureSphere;
+			var cubeMesh, sphereMesh;
+			var sphereMaterial;
+			var refract;
+			var mouseX = 0, mouseY = 0;
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+
+			init();
+			animate();
+
+			function init() {
+
+				// CAMERAS
+
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 100000 );
+				camera.position.set( 0, 0, 1000 );
+				cameraCube = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 100000 );
+				/*
+				controls = new THREE.OrbitControls( camera );
+				controls.minDistance = 500;
+				controls.maxDistance = 2500;
+				*/
+				// SCENE
+
+				scene = new THREE.Scene();
+				sceneCube = new THREE.Scene();
+
+				// Lights
+
+				var ambient = new THREE.AmbientLight( 0xffffff );
+				scene.add( ambient );
+
+				// Textures
+
+				var r = "";
+				var urls = [ r + "px.jpg", r + "nx.jpg",
+							 r + "py.jpg", r + "ny.jpg",
+							 r + "pz.jpg", r + "nz.jpg" ];
+
+				textureCube = new THREE.CubeTextureLoader().load( urls );
+				textureCube.format = THREE.RGBFormat;
+				textureCube.mapping = THREE.CubeReflectionMapping;
+
+				var textureLoader = new THREE.TextureLoader();
+
+				textureEquirec = textureLoader.load( "" );
+				textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
+				textureEquirec.magFilter = THREE.LinearFilter;
+				textureEquirec.minFilter = THREE.LinearMipMapLinearFilter;
+
+				textureSphere = textureLoader.load( "" );
+				textureSphere.mapping = THREE.SphericalReflectionMapping;
+
+				// Materials
+
+				var equirectShader = THREE.ShaderLib[ "equirect" ];
+
+				var equirectMaterial = new THREE.ShaderMaterial( {
+					fragmentShader: equirectShader.fragmentShader,
+					vertexShader: equirectShader.vertexShader,
+					uniforms: equirectShader.uniforms,
+					depthWrite: false,
+					side: THREE.BackSide
+				} );
+
+				equirectMaterial.uniforms[ "tEquirect" ].value = textureEquirec;
+
+
+
+
+				var cubeShader = THREE.ShaderLib[ "cube" ];
+				var cubeMaterial = new THREE.ShaderMaterial( {
+					fragmentShader: cubeShader.fragmentShader,
+					vertexShader: cubeShader.vertexShader,
+					uniforms: cubeShader.uniforms,
+					depthWrite: false,
+					side: THREE.BackSide
+				} );
+
+				cubeMaterial.uniforms[ "tCube" ].value = textureCube;
+
+				// Skybox
+
+				cubeMesh = new THREE.Mesh( new THREE.BoxGeometry( 100, 100, 100 ), cubeMaterial );
+				sceneCube.add( cubeMesh );
+
+				//
+				if(window.innerWidth > window.innerHeight )
+				{
+					var radios = window.innerHeight/1.1;
+					if(radios<400){ radios=500;}
+				} else{
+					var radios = window.innerWidth/0.9;
+					if(radios<400){ radios=500;}
+				}
+				
+				var geometry = new THREE.SphereGeometry( radios , 124, 124 );
+				sphereMaterial = new THREE.MeshLambertMaterial( { envMap: textureCube } );
+				sphereMesh = new THREE.Mesh( geometry, sphereMaterial );
+
+				scene.add( sphereMesh );
+
+				//
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.autoClear = false;
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setFaceCulling( THREE.CullFaceNone );
+				document.body.appendChild( renderer.domElement );
+
+				//
+				/*
+				var params = {
+					Cube : function () {
+						cubeMesh.material = cubeMaterial;
+						cubeMesh.visible = true;
+						sphereMaterial.envMap = textureCube;
+						sphereMaterial.needsUpdate = true;
+					},
+					Equirectangular : function () {
+						cubeMesh.material = equirectMaterial;
+						cubeMesh.visible = true;
+						sphereMaterial.envMap = textureEquirec;
+						sphereMaterial.needsUpdate = true;
+					},
+					Spherical: function () {
+							cubeMesh.visible = false;
+						sphereMaterial.envMap = textureSphere;
+						sphereMaterial.needsUpdate = true;
+					},
+					Refraction: false
+				};
+				*/
+				/*
+				var gui = new dat.GUI();
+				gui.add( params, 'Cube' );
+				gui.add( params, 'Equirectangular' );
+				gui.add( params, 'Spherical' );
+				gui.add( params, 'Refraction' ).onChange( function( value ) {
+
+					if ( value ) {
+
+						textureEquirec.mapping = THREE.EquirectangularRefractionMapping;
+						textureCube.mapping = THREE.CubeRefractionMapping;
+
+					} else {
+
+						textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
+						textureCube.mapping = THREE.CubeReflectionMapping;
+
+					}
+
+					sphereMaterial.needsUpdate = true;
+
+				} );
+				gui.open();
+				*/
+				/*
+				composer = new THREE.EffectComposer( renderer );
+				composer.addPass( new THREE.RenderPass( scene, camera ) );
+
+				glitchPass = new THREE.GlitchPass();
+				glitchPass.renderToScreen = true;
+				composer.addPass( glitchPass );
+				*/
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+			function onDocumentMouseMove( event ) {
+
+				mouseX = ( event.clientX - windowHalfX ) * 1;
+				mouseY = ( event.clientY - windowHalfY ) * 1;
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				cameraCube.aspect =window.innerWidth / window.innerHeight;
+				cameraCube.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			//
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render();
+
+
+			}
+
+			function render() {
+
+				var timer = -0.0002 * Date.now();
+
+				camera.position.x += (( mouseX - camera.position.x ) * .005) + Math.sin(timer * 3) * 1;
+				camera.position.y += (( - mouseY - camera.position.y ) * .01) + Math.sin(timer * 1) * 0.1;
+				//camera.position.x += Math.sin(timer * 3) * 2;
+				//camera.position.z += Math.sin(timer * 1) * 0.1;
+				camera.position.z += Math.sin(timer * 7) * 0.34;
+
+
+				camera.lookAt( scene.position );
+				cameraCube.rotation.copy( camera.rotation );
+
+				renderer.render( sceneCube, cameraCube );
+				renderer.render( scene, camera );
+				//composer.render();
+
+			} 
+		</script>
+
+		<script>
+			jQuery(document).ready(function () {
+			    var futureDate = new Date('2018/11/28');
+
+			    function replacePersian(element) {
+			        var i;
+			        var englisNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+			        var persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+			        var output = element.text();
+			        for (i = 0; i < 10; i++) {
+			            output = output.replace(new RegExp(englisNumbers[i], "gim"), persianNumbers[i]);
+			        }
+			        return output;
+			    }
+
+			    function changeToPersian() {
+			        var i;
+			        for (i = 0; i < 4; i++) {
+			            var element = jQuery(".circles-time:eq(" + i + ")");
+			            element.text(replacePersian(element));
+			        }
+			    }
+
+			    function renderTime() {
+			        var second, minute, hour, day;
+			        var dateNow = Date.now();
+			        var diffTime = futureDate.getTime() - dateNow;
+			        if (diffTime > 0 || diffTime < 0) {
+			            diffTime = Math.floor(diffTime / 1000);
+			            second = diffTime % 60;
+			            minute = Math.floor((diffTime / 60) % 60);
+			            hour = Math.floor((diffTime / 3600) % 24);
+			            day = Math.floor(diffTime / 86400);
+			            jQuery(".circles-time:eq(0)").text(day);
+			            jQuery(".circles-time:eq(1)").text(hour);
+			            jQuery(".circles-time:eq(2)").text(minute);
+			            jQuery(".circles-time:eq(3)").text(second);
+			            changeToPersian();
+			        }
+			    }
+
+			    renderTime();
+			    setInterval(renderTime, 1000);
+			});
+		</script>
+
+	</body>
+</html>
